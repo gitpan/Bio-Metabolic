@@ -1,8 +1,8 @@
 use strict;
 use warnings;
 
-use Test::More skip_all => 'testing only networks';
-#use Test::More tests => 21;
+#use Test::More skip_all => 'testing only networks';
+use Test::More tests => 21;
 
 use_ok('Bio::Metabolic');
 
@@ -71,7 +71,7 @@ ok( $cl4->has($s1), 'method add_substrates' );
 $cl1->remove_substrates( $s1, $s2 );
 @l = $cl1->list;
 is( eval(@l), 1, 'remove_substrates' );
-is($cl1->which($s3),0,'method which');
+is( $cl1->which($s3), 0, 'method which' );
 
 my $cl5 = $cl2 + $cl3;
 @l = $cl5->list;

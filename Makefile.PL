@@ -7,6 +7,9 @@ WriteMakefile(
     'VERSION_FROM' => 'lib/Bio/Metabolic.pm',    # finds $VERSION
     'PREREQ_PM'    => {
 	Math::Symbolic => 0,
+	Math::Fraction => 0,
+	Math::Cephes => 0,
+	PDL => 2.4,
         Test::More => 0,
     },                                           # e.g., Module::Name => 1.1
     (

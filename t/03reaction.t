@@ -1,8 +1,8 @@
 use strict;
 use warnings;
 
-use Test::More skip_all => 'testing only networks';
-#use Test::More tests => 60;
+#use Test::More skip_all => 'testing only networks';
+use Test::More tests => 53;
 
 use_ok('Bio::Metabolic');
 
@@ -92,31 +92,6 @@ is( $r3->st_coefficient($s3), 1,  'coeff s2 is 1' );
 is( $r3->st_coefficient($s4), 1,  'coeff s2 is 1' );
 
 ok( $r2 == $r3, 'method equals' );
-ok( !defined $r2->rate(), 'rate not yet defined' );
-
-my $phash = $r2->parameters();
-is( ref($phash), 'HASH', 'retrieve parameters' );
-$r2->kinetics('linear');
-my $rate2 = $r2->rate;
-is( ref($rate2), 'Math::Symbolic::Operator', 'method kinetics()' );
-
-is(
-    "$rate2", "(kplus_r2 * (s2 ^ 2)) - ((kminus_r2 * s3) * s4)", 'rate
-expression for multilinear kinetics'
-  )
-  or diag("$rate2");
-
-is( $r2->parameter("k+")->name, "kplus_r2", 'method parameter' );
-
-$r1->kinetics('linear_irreversible');
-my $rate1 = $r1->rate;
-is(
-    "$rate1", "k_r1 * s1", 'rate expression for irreversible linear
-kinetics'
-  )
-  or diag("$rate1");
-
-is( $r1->parameter("k")->name, "k_r1", 'method parameter' );
 
 like( "$r1", qr/^\[s1\]->\[s2\]/, 'stringification' );
 like( "$r2", qr/^\[s2\]\+\[s2\]->\[s3\]\+\[s4\]/, 'stringification' );

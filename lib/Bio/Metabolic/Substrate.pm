@@ -58,7 +58,7 @@ require Exporter;
 
 #use AutoLoader qw(AUTOLOAD);
 
-use Math::Symbolic;
+#use Math::Symbolic;
 use Carp;
 
 use overload
@@ -95,8 +95,9 @@ sub new {
     my $attr = @_ ? shift() : {};
 
     my $self = {
-        name       => $name,
-        var        => Math::Symbolic::Variable->new($name),
+        name => $name,
+
+        #        var        => Math::Symbolic::Variable->new($name),
         attributes => $attr,
     };
 
@@ -152,11 +153,11 @@ variable (Math::Symbolic::Variable object).
 
 =cut
 
-sub var {
-    my $self = shift;
-    $self->{var} = shift if @_;
-    return $self->{var};
-}
+#sub var {
+#    my $self = shift;
+#    $self->{var} = shift if @_;
+#    return $self->{var};
+#}
 
 =head2 Method fix
 
@@ -165,12 +166,12 @@ concentration.
 
 =cut
 
-sub fix {
-    my $self  = shift;
-    my $value = shift;
+#sub fix {
+#    my $self  = shift;
+#    my $value = shift;
 
-    return $self->var->value($value);
-}
+#    return $self->var->value($value);
+#}
 
 =head2 Method release
 
@@ -179,9 +180,9 @@ concentration.
 
 =cut
 
-sub release {
-    shift->var->value(undef);
-}
+#sub release {
+#    shift->var->value(undef);
+#}
 
 =head2 Method get_attribute
 

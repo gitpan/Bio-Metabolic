@@ -37,7 +37,7 @@ our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 our @EXPORT = qw(
 
 );
-our $VERSION = '0.06';
+our $VERSION = '0.07';
 
 # Preloaded methods go here.
 
@@ -49,32 +49,30 @@ __END__
 
 =head1 NAME
 
-Bio::Metabolic - Perl extension for blah blah blah
+Bio::Metabolic - Perl extension for representing and simulating metabolic networks
 
 =head1 SYNOPSIS
 
   use Bio::Metabolic;
-  blah blah blah
 
-=head1 DESCRIPTION
+  This is equivalent to
 
-Stub documentation for Bio::Metabolic, created by h2xs. It looks like the
-author of the extension was negligent enough to leave the stub
-unedited.
-
-Blah blah blah.
-
-=head2 EXPORT
-
-None by default.
+  use Bio::Metabolic::Substrate;
+  use Bio::Metabolic::Substrate::Cluster;
+  use Bio::Metabolic::Reaction;
+  use Bio::Metabolic::Network;
 
 
 =head1 AUTHOR
 
-A. U. Thor, a.u.thor@a.galaxy.far.far.away
+Oliver Ebenhöh, oliver.ebenhoeh@rz.hu-berlin.de
 
 =head1 SEE ALSO
 
+Bio::Metabolic::Substrate 
+Bio::Metabolic::Substrate::Cluster 
+Bio::Metabolic::Reaction 
+Bio::Metabolic::Network
 perl(1).
 
 =cut
